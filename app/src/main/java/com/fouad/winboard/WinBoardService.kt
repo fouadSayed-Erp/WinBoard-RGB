@@ -14,7 +14,6 @@ import android.widget.LinearLayout
 import kotlin.random.Random
 
 class WinBoardService : InputMethodService() {
-    private var isTrackpadMode = false
     private var lastX = 0f
     private var lastY = 0f
     private lateinit var audio: AudioManager
@@ -28,12 +27,9 @@ class WinBoardService : InputMethodService() {
 
     override fun onCreateInputView(): View {
         val root = layoutInflater.inflate(R.layout.keyboard_view, null) as LinearLayout
-        val toggle = root.findViewById<Button>(R.id.btnToggle)
         val keysContainer = root.findViewById<LinearLayout>(R.id.keysContainer)
-        val trackpadContainer = root.findViewById<View>(R.id.trackpadContainer)
         val trackpadView = root.findViewById<View>(R.id.trackpadView)
 
-        // بناء كيبورد كامل QWERTY + F1-F12 زي الصورة
         val rows = listOf(
             listOf("Esc","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12","Del"),
             listOf("~`","1!","2@","3#","4$","5%","6^","7&","8*","9(","0)","-_","=+","Backspace"),
@@ -48,7 +44,7 @@ class WinBoardService : InputMethodService() {
             for (key in rowData) {
                 val btn = Button(this).apply {
                     text = key
-                    textSize = 11f
+                    textSize = 10f
                     setTextColor(Color.WHITE)
                     setBackgroundResource(R.drawable.key_dark)
                     setOnClickListener {
@@ -57,20 +53,12 @@ class WinBoardService : InputMethodService() {
                         handleKey(key)
                     }
                 }
-                val weight = if (key=="Space") 3f else if (key=="Backspace"||key=="Enter"||key=="Shift") 1.5f else 1f
-                row.addView(btn, LinearLayout.LayoutParams(0, 110, weight).apply { setMargins(2,2,2,2) })
+                val w = if (key=="Space") 3f else if (key=="Backspace"||key=="Enter"||key=="Shift") 1.5f else 1f
+                row.addView(btn, LinearLayout.LayoutParams(0, 105, w).apply { setMargins(2,2,2,2) })
             }
             keysContainer.addView(row)
         }
 
-        fun updateMode(){
-            isTrackpadMode = !isTrackpadMode
-            trackpadContainer.visibility = if (isTrackpadMode) View.VISIBLE else View.VISIBLE // مدمج دايماً زي ما طلبت
-            toggle.text = if (isTrackpadMode) "⌨️ رجوع - الكيبورد + تراك باد مدمج" else "🔵 Trackpad مدمج - اسحب للتحكم"
-        }
-        toggle.setOnClickListener { updateMode() }
-
-        // تراك باد
         trackpadView.setOnTouchListener { _, e ->
             when(e.action){
                 MotionEvent.ACTION_DOWN -> { lastX=e.x; lastY=e.y }
@@ -113,7 +101,7 @@ class WinBoardService : InputMethodService() {
         val col = Color.HSVToColor(floatArrayOf(hue,1f,1f))
         btn.setBackgroundColor(col)
         Handler(Looper.getMainLooper()).postDelayed({
-            btn.setBackgroundResource(R.drawable.key_dark)
+            try { btn.setBackgroundResource(R.drawable.key_dark) } catch(e:Exception){}
         }, 180)
     }
 }
