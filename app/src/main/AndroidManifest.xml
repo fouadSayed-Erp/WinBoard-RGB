@@ -17,6 +17,7 @@
         <service
             android:name=".WinBoardService"
             android:label="WinBoard RGB"
+            android:exported="false"
             android:permission="android.permission.BIND_INPUT_METHOD">
             <intent-filter>
                 <action android:name="android.view.InputMethod" />
