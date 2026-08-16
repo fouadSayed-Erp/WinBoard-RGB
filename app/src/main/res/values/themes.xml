@@ -1,0 +1,5 @@
+<resources>
+    <style name="Theme.WinBoard" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#0A84FF</item>
+    </style>
+</resources>
