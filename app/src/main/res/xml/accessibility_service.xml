@@ -4,4 +4,4 @@
     android:accessibilityFlags="flagDefault"
     android:canPerformGestures="true"
     android:accessibilityFeedbackType="feedbackGeneric"
-    android:description="@string/app_name" />
+    android:description="@string/app_name"/>
