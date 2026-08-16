@@ -3,28 +3,24 @@
     android:layout_width="match_parent" android:layout_height="match_parent" android:background="#121214">
 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
 
-    <!-- Preview Top -->
     <FrameLayout android:layout_width="match_parent" android:layout_height="160dp" android:background="@drawable/bg_top_preview">
-        <Button android:layout_width="56dp" android:layout_height="56dp" android:layout_gravity="center" android:text="G" android:backgroundTint="#1E1E20" android:textColor="white"/>
-        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="bottom|start" android:layout_margin="12dp" android:src="@android:drawable/ic_menu_compass"/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|end" android:layout_margin="12dp" android:text="ENG • 12:34 PM" android:textColor="#AAA" android:textSize="11sp"/>
+        <Button android:layout_width="56dp" android:layout_height="56dp" android:layout_gravity="center" android:text="G" android:textColor="#FFFFFF" android:backgroundTint="#1E1E20"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|end" android:layout_margin="12dp" android:text="ENG • 12:34 PM" android:textColor="#AAAAAA" android:textSize="11sp"/>
     </FrameLayout>
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CONTROLS • التحكم" android:textColor="#888" android:letterSpacing="0.1" android:layout_marginTop="16dp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CONTROLS • التحكم" android:textColor="#888888" android:layout_marginTop="16dp"/>
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sensitivity" android:textColor="#AAA"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sensitivity" android:textColor="#AAAAAA"/>
         <SeekBar android:id="@+id/seekSensitivity" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginHorizontal="12dp"/>
-        <TextView android:id="@+id/txtSensitivity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.6x" android:background="@drawable/key_dark" android:padding="6dp" android:textColor="white"/>
+        <TextView android:id="@+id/txtSensitivity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.6x" android:textColor="#FFFFFF" android:background="@drawable/key_dark" android:padding="8dp"/>
     </LinearLayout>
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Left tap = click • Two fingers = right click" android:textColor="#666" android:textSize="11sp" android:layout_marginTop="4dp"/>
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="KEYBOARD • لوحة المفاتيح" android:textColor="#888" android:layout_marginTop="16dp"/>
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="الكيبورد الحقيقي هيظهر لما تفتح واتساب - ده مجرد معاينة" android:textColor="#0A84FF" android:layout_marginTop="8dp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="KEYBOARD • لوحة المفاتيح - QWERTY Full + F1-F12" android:textColor="#888888" android:layout_marginTop="16dp"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="الكيبورد الحقيقي سيظهر في الواتساب بعد التفعيل - مع RGB وصوت ميكانيكي وتراك باد مدمج" android:textColor="#0A84FF" android:layout_marginTop="8dp"/>
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TRACKPAD • لوحة اللمس" android:textColor="#888" android:layout_marginTop="16dp"/>
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Precision Trackpad - اسحب بإصبعك داخل التراك باد لتحريك المؤشر" android:textColor="#AAA" android:layout_marginTop="8dp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TRACKPAD • لوحة اللمس" android:textColor="#888888" android:layout_marginTop="16dp"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Precision Trackpad - اسحب للتحكم" android:textColor="#AAAAAA" android:layout_marginTop="8dp"/>
 
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Designed for Android • Bluetooth &amp; USB • معاينة تفاعلية" android:textColor="#555" android:gravity="center" android:layout_marginTop="24dp" android:textSize="11sp"/>
-
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Designed for Android • Bluetooth &amp; USB" android:textColor="#555555" android:gravity="center" android:layout_marginTop="24dp" android:textSize="11sp"/>
 </LinearLayout>
 </ScrollView>
