@@ -1,1 +1,7 @@
-<resources><style name="Theme.WinBoard" parent="android:Theme.Material.NoActionBar"/></resources>
+<resources>
+    <style name="Theme.WinBoard" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">#121214</item>
+        <item name="android:statusBarColor">#121214</item>
+        <item name="android:windowBackground">#121214</item>
+    </style>
+</resources>
