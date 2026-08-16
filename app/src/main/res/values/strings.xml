@@ -1,1 +1,4 @@
-<resources><string name="app_name">WinBoard RGB</string></resources>
+<resources>
+    <string name="app_name">WinBoard RGB</string>
+    <string name="accessibility_desc">WinBoard Mouse Cursor</string>
+</resources>
