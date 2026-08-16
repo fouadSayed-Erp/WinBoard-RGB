@@ -3,51 +3,27 @@ package com.fouad.winboard
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
-import android.widget.Button
-import android.widget.LinearLayout
+import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val layout = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(50, 100, 50, 100)
-        }
-
-        val title = TextView(this).apply {
-            text = "WinBoard RGB V3\n\n1- فعل الكيبورد\n2- فعل مؤشر الماوس\n3- افتح واتساب وجرب الكتابة"
-            textSize = 18f
-        }
-
-        val btnKeyboard = Button(this).apply {
-            text = "1- تفعيل الكيبورد"
-            setOnClickListener {
-                startActivity(Intent(Settings.ACTION_INPUT_METHOD_SETTINGS))
+        setContentView(R.layout.activity_main)
+        val seek = findViewById<SeekBar>(R.id.seekSensitivity)
+        val txt = findViewById<TextView>(R.id.txtSensitivity)
+        seek.progress = 60
+        seek.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(s: SeekBar?, p: Int, f: Boolean) {
+                val v = 0.5 + p/100.0*2.0
+                txt.text = String.format("%.1fx", v)
+                MouseAccessibilityService.sensitivity = v.toFloat()
             }
-        }
-
-        val btnMouse = Button(this).apply {
-            text = "2- تفعيل مؤشر الماوس"
-            setOnClickListener {
-                startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
-            }
-        }
-
-        val btnChoose = Button(this).apply {
-            text = "3- اختيار الكيبورد"
-            setOnClickListener {
-                (getSystemService(INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager)
-                    .showInputMethodPicker()
-            }
-        }
-
-        layout.addView(title)
-        layout.addView(btnKeyboard)
-        layout.addView(btnMouse)
-        layout.addView(btnChoose)
-        setContentView(layout)
+            override fun onStartTrackingTouch(s: SeekBar?) {}
+            override fun onStopTrackingTouch(s: SeekBar?) {}
+        })
     }
+    fun openInputSettings(v: android.view.View){ startActivity(Intent(Settings.ACTION_INPUT_METHOD_SETTINGS)) }
+    fun openAccessSettings(v: android.view.View){ startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)) }
 }
